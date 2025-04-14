@@ -1,0 +1,125 @@
+ @font-face {
+     font-family: 'Metro';
+     src: url('../fonts/Metro.otf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+ }
+ 
+ body {
+     margin: 0;
+     padding: 0;
+     overflow-x: hidden;
+ }
+
+ .container {
+     width: 100vw;
+ }
+
+ .screen {
+     width: 100%;
+     height: 100vh;
+     position: relative;
+     opacity: 0;
+     transform: translateY(50px);
+     transition: opacity 1s ease, transform 1s ease;
+ }
+
+ /* Коли екран видно */
+ .screen.visible {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ /* Стилі для першого екрану */
+ .screen1 .main-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 1;
+ }
+
+ .screen1 .marquee {
+     position: absolute;
+     top: 0;
+     width: 100%;
+     overflow: hidden;
+     white-space: nowrap;
+     z-index: 2;
+ }
+
+ .marquee_text {
+     font-family: 'Jura', sans-serif;
+     font-size: 2rem;
+     font-weight: 600;
+     color: white;
+ }
+
+ .screen1 .text-container {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+     z-index: 3;
+ }
+
+ /* Стилі для заголовку та підзаголовку зберігаються, як і раніше */
+ .title_sit {
+     font-family: 'Metro', sans-serif;
+     font-size: 128px;
+     font-weight: 400;
+     color: white;
+     margin: 0;
+     opacity: 0;
+     animation: fadeIn 2s ease-in forwards;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+ .subtitle {
+     font-family: 'Jura', sans-serif;
+     font-size: 32px;
+     font-weight: 500;
+     color: white;
+     margin: 12px 0 0 0;
+     opacity: 0;
+     transform: rotate(90deg);
+     transform-origin: left center;
+     animation: rotateIn 2s ease-in forwards;
+ }
+
+ @keyframes rotateIn {
+     0% {
+         opacity: 0;
+         transform: rotate(90deg);
+     }
+
+     100% {
+         opacity: 1;
+         transform: rotate(0deg);
+     }
+ }
+
+ /* Стилі для другого екрану */
+.screen2 {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Вирівнювання по початку, тобто вгорі */
+    color: white;
+    font-size: 2rem;
+    padding-top: 20px;
+    /* Опціонально: відступ зверху */
+}
